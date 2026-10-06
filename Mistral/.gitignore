@@ -1,0 +1,7 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.py[cod]
+.env
+.env.local
+!.env.example
