@@ -1,58 +1,67 @@
 # LLM Lab
 
-A lightweight Python project for experimenting with OpenAI's API.
+A lightweight testbed for experimenting with different LLM APIs (OpenAI & Google Gemini) safely using environment variables.
 
 ## Project Structure
 
 ```
 LLM Lab/
 ├── OpenAI/
-│   ├── app.py              # Main script to query OpenAI models
-│   ├── requirements.txt    # Python dependencies
-│   ├── .env.example        # Example environment configuration
+│   ├── app.py              # OpenAI test script
+│   ├── requirements.txt    # OpenAI dependencies
+│   ├── .env.example        # Environment variables template
+│   └── .gitignore
+├── Gemini/
+│   ├── app.py              # Google Gemini test script
+│   ├── requirements.txt    # Gemini dependencies (google-genai)
+│   ├── .env.example        # Environment variables template
 │   └── .gitignore
 ├── .gitignore
 └── README.md
 ```
 
-## Setup Instructions
+## Setup & Running
 
-### 1. Prerequisites
-- Python 3.8+ installed
-- An active OpenAI API key
-
-### 2. Installation
-Navigate to the `OpenAI` directory and set up your virtual environment:
+### 1. OpenAI Lab
 
 ```bash
 cd OpenAI
 python -m venv venv
-```
 
-Activate the virtual environment:
-- **Windows (PowerShell):** `.\venv\Scripts\Activate.ps1`
-- **Windows (CMD):** `.\venv\Scripts\activate.bat`
-- **macOS/Linux:** `source venv/bin/activate`
+# Activate venv (Windows PowerShell)
+.\venv\Scripts\Activate.ps1
 
-Install dependencies:
-```bash
 pip install -r requirements.txt
-```
-
-### 3. Environment Configuration
-Create a `.env` file in the `OpenAI/` directory based on `.env.example`:
-
-```bash
 cp .env.example .env
 ```
-
-Open `.env` and insert your OpenAI API key:
+Add your API key inside `OpenAI/.env`:
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
 ```
+Run the script:
+```bash
+python app.py
+```
 
-### 4. Running the Code
-Run the application:
+---
+
+### 2. Gemini Lab
+
+```bash
+cd Gemini
+python -m venv venv
+
+# Activate venv (Windows PowerShell)
+.\venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+cp .env.example .env
+```
+Add your API key inside `Gemini/.env`:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+Run the script:
 ```bash
 python app.py
 ```
